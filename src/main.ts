@@ -4,7 +4,7 @@ import Alpine from "alpinejs";
 Alpine.store("exercises", [
   {
     title: "Treadmill",
-    image: "/exercise-treadmill.png",
+    image: "./exercise-treadmill.png",
     averageCalories: 250,
     duration: "21:18",
     link:
@@ -12,7 +12,7 @@ Alpine.store("exercises", [
   },
   {
     title: "Stretching",
-    image: "/exercise-stretching.png",
+    image: "./exercise-stretching.png",
     averageCalories: 250,
     duration: "15:32",
     link:
@@ -20,7 +20,7 @@ Alpine.store("exercises", [
   },
   {
     title: "Yoga",
-    image: "/exercise-yoga.png",
+    image: "./exercise-yoga.png",
     averageCalories: 250,
     duration: "25:37",
     link:
@@ -28,7 +28,7 @@ Alpine.store("exercises", [
   },
   {
     title: "Running",
-    image: "/exercise-running.png",
+    image: "./exercise-running.png",
     averageCalories: 250,
     duration: "29:45",
     link:
@@ -36,7 +36,7 @@ Alpine.store("exercises", [
   },
   {
     title: "Lifting",
-    image: "/exercise-lifting.png",
+    image: "./exercise-lifting.png",
     averageCalories: 250,
     duration: "10:26",
     link:
@@ -44,7 +44,7 @@ Alpine.store("exercises", [
   },
   {
     title: "Push Ups",
-    image: "/exercise-pushups.png",
+    image: "./exercise-pushups.png",
     averageCalories: 250,
     duration: "11:55",
     link:
@@ -57,19 +57,19 @@ Alpine.store("features", [
     title: "Personalization",
     description:
       "We create a workout program that is designed specifically for your body type, fitness level, and goals. No more wasting time on generic routines that don't deliver results.",
-    image: "/yoga-woman.jpg",
+    image: "./yoga-woman.jpg",
   },
   {
     title: "Expert Guidance",
     description:
       "Our team of experienced trainers and fitness experts will be with you throughout your journey. They'll provide continuous support, motivation, and expertise to ensure your success.",
-    image: "/trainer-and-student.jpg",
+    image: "./trainer-and-student.jpg",
   },
   {
     title: "Results-Driven",
     description:
       "Our goal is your success. Whether you want to shed pounds, build muscle, or simply improve your overall health, we'll help you achieve the results you've always dreamed of.",
-    image: "/man-dumbbells.jpg",
+    image: "./man-dumbbells.jpg",
   },
 ]);
 
@@ -93,7 +93,6 @@ Alpine.store("workouts", [
   {
     name: "Burn Calories",
     videos: 30,
-    link: "<BS>"
   },
 ]);
 
