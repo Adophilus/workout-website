@@ -12,16 +12,17 @@
     <section class="max-w-6xl mx-auto">
       <nav class="flex justify-between">
         <a href="/">
-          <header class="p-4">
+          <header class="p-4 py-5">
             <h1 class="text-xl font-semibold">
               WORKOUT
             </h1>
+            <div class="h-1 bg-emerald-500 w-[50px]"></div>
           </header>
           <ul class="flex items-stretch">
-            <li><a href="#!" class="flex w-full h-full p-4">EXERCISES</a></li>
-            <li><a href="#!" class="flex w-full h-full p-4">TRAINERS</a></li>
-            <li><a href="#!" class="flex w-full h-full p-4">PRICING</a></li>
-            <li><a href="#!" class="flex w-full h-full p-4">LOGIN</a></li>
+            <li><a href="#!" class="flex items-center w-full h-full p-4">EXERCISES</a></li>
+            <li><a href="#!" class="flex items-center w-full h-full p-4">TRAINERS</a></li>
+            <li><a href="#!" class="flex items-center w-full h-full p-4">PRICING</a></li>
+            <li><a href="#!" class="flex items-center w-full h-full p-4">LOGIN</a></li>
           </ul>
       </nav>
     </section>
@@ -30,31 +31,37 @@
         <div class="grid grid-cols-2 my-10">
           <div class="space-y-8">
             <div>
-              <a href="#!" class="text-xs rounded-full bg-black border border-white p-1 inline-flex items-center">
+              <a href="#!" class="text-sm rounded-full bg-black border border-white p-1 inline-flex items-center">
                 <span class="rounded-full bg-emerald-500 font-semibold p-1 px-2">NEW</span>
                 <span class="px-3">High intensity workout to burn calories</span>
               </a>
             </div>
-            <header>
+            <header class="relative z-10">
               <h2 class="font-bold text-9xl tracking-wide">Cardio<br />
                 Exercises</h2>
             </header>
             <div>
               <p class="text-gray-500 text-sm">
-                Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.
+                Your Journey to a Healthier You Begins with Every Heartbeat
               </p>
             </div>
             <div class="flex gap-x-6">
-              <button type="button" class="bg-emerald-500 text-white py-4 px-6 rounded-md font-semibold">
-                Get Started
-              </button>
-              <button type="button"
-                class="border border-white bg-black text-white py-4 px-6 rounded-md font-semibold">Preview</button>
+              <a href="https://github.com/adophilus/workout-website">
+                <button type="button" class="bg-emerald-500 text-white py-4 px-6 rounded-md font-semibold">
+                  Get Started
+                </button>
+              </a>
+              <a href="#about">
+                <button type="button"
+                  class="border border-white bg-black text-white py-4 px-6 rounded-md font-semibold">
+                  Learn More</button>
+              </a>
             </div>
           </div>
-          <div>
+          <div class="relative">
             <div class="flex flex-col h-full items-end justify-center">
-              <div class="grid gap-4">
+              <img class="absolute" src="/public/hero-image.png" />
+              <div class="grid gap-4 z-10">
                 <div class="rounded-md border border-white py-4 px-6">
                   <p class="text-yellow-300 font-semibold text-3xl tracking-wide">38:14</p>
                   <p class="text-sm text-white">TIME</p>
@@ -71,7 +78,10 @@
     </section>
     <section class="max-w-6xl mx-auto py-10">
       <header class="flex justify-between mb-12">
-        <h3 class="font-semibold text-2xl">Popular Exercises</h3>
+        <hgroup>
+          <h3 class="font-semibold text-2xl">Popular Exercises</h3>
+          <div class="h-1 bg-emerald-500 w-[50px]"></div>
+        </hgroup>
         <a href="#!" class="text-sm text-gray-500">SEE MORE EXERCISES</a>
       </header>
       <div class="grid gap-6 gap-y-12 grid-cols-3">
@@ -86,7 +96,25 @@
                 <span x-text="exercise.duration" class="rounded-l-lg px-2 font-semibold bg-black"></span>
               </div>
             </div>
-            <p x-text="`${exercise.averageCalories} est calories`" class="px-4 text-gray-500 text-xs"></p>
+            <p x-text="`${exercise.averageCalories} est calories`" class="px-4 text-gray-500 text-sm"></p>
+          </div>
+        </template>
+      </div>
+    </section>
+    <section class="max-w-6xl mx-auto py-10">
+      <header class="mb-12">
+        <h3 class="font-semibold text-2xl">What Sets Us Apart?</h3>
+        <div class="h-1 bg-emerald-500 w-[50px]"></div>
+      </header>
+      <div class="space-y-8">
+        <template x-for="(feature, index) in $store.features">
+          <div class="grid grid-cols-2">
+            <div class="grid gap-4 content-center px-12">
+              <h5 class="text-4xl font-medium" x-text="feature.title"></h5>
+              <p class="text-lg" x-text="feature.description"></p>
+            </div>
+            <img :src="feature.image"
+              :class="`w-full aspect-square object-cover ${index % 2 === 0 ? 'rounded-l-full' : 'order-first rounded-r-full'}`" />
           </div>
         </template>
       </div>
@@ -95,15 +123,15 @@
       <div class="py-10">
         <div class="grid gap-8 grid-cols-2 py-20">
           <div>
-            <div class="relative">
+            <div class="relative mb-24">
               <img src="/public/marker.png" class="absolute bottom-0 w-[450px] translate-y-1/2" />
               <h3 class="tracking-wide font-semibold text-8xl relative z-10">Workout<br />Program<br />Made<br />For You
               </h3>
             </div>
-            <div class="grid grid-cols-2 my-10">
+            <div class="grid grid-cols-2 pt-24">
               <div>
                 <div class="relative">
-                  <img src="/public/athlete-woman-1.png" />
+                  <img class="object-cover w-full" src="/public/athlete-woman-1.png" />
                   <div class="absolute bottom-0 pt-4 translate-y-full">
                     <p class="font-semibold text-lg">
                       Samantha Willams
@@ -116,10 +144,10 @@
               <div></div>
               <div>
                 <div class="space-y-4">
-                  <img src="/public/athlete-woman-1.png" />
+                  <img class="object-cover w-full" src="/public/athlete-woman-2.png" />
                   <div>
                     <p class="font-semibold text-lg">
-                      Samantha Willams
+                      Karen Summer
                     </p>
                     <p class="text-gray-500 text-sm">Trainer</p>
                   </div>
@@ -129,20 +157,22 @@
           </div>
           <div class="space-y-20">
             <div class="space-y-12">
-              <p class="text-gray-500 text-lg leading-loose">
-                Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi
-                Lorem
-                pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud
-                nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor minim nulla est proident.
+              <p class="text-lg leading-loose">
+                Ready to take control of your health and embark on a transformational journey? Don't wait any longer;
+                your journey to a better you starts here! Let us be your trusted partner on the path to a healthier,
+                more active lifestyle. Say goodbye to feeling physically unfit, and hello to a fitter, healthier, and
+                happier you.
               </p>
               <p>
-                <button type="button" class="bg-emerald-500 text-white py-4 px-6 rounded-md font-semibold">
-                  Get Started
-                </button>
+                <a href="https://github.com/adophilus/workout-website">
+                  <button type="button" class="bg-emerald-500 text-white py-4 px-6 rounded-md font-semibold">
+                    Get Started
+                  </button>
+                </a>
               </p>
             </div>
             <div class="space-y-4">
-              <img class="w-3/4" src="/public/athlete-man-1.png" />
+              <img class="w-3/4 object-cover" src="/public/athlete-man-1.png" />
               <div>
                 <p class="font-semibold text-lg">
                   Jonathan Wise
@@ -152,6 +182,26 @@
             </div>
           </div>
         </div>
+      </div>
+    </section>
+    <section class="max-w-6xl mx-auto py-10">
+      <div class="divide-y divide-gray-500">
+        <template x-for="(workout, index) in $store.workouts">
+          <a href="https://www.youtube.com/watch?v=Sou12pLJFCc&list=PL5qo1Sl2GW3cMiepxpnY3vjo7MPM-ejBh"
+            class="py-10 w-full grid justify-between grid-flow-col">
+            <p x-text="(index + 1).toString().padStart(2, '0')" class="text-gray-500 text-lg"></p>
+            <div>
+              <p x-text="workout.name" class="text-4xl font-medium"></p>
+              <p class="text-gray-500 text-sm text-left" x-text="`${workout.videos} videos`"></p>
+            </div>
+            <p>
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
+                smlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
+              </svg>
+            </p>
+          </a>
+        </template>
       </div>
     </section>
   </main>
