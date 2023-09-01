@@ -35,10 +35,8 @@ jobs:
         run: pnpm install
       - name: Build project
         run: pnpm build
-      - name: Log
-        run: echo ${{ github.event.repository.name }}
-      - name: Log2
-        run: echo $REPO_NAME
+        env:
+          BASE_URL: /${{ github.event.repository.name }}/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
