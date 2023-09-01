@@ -7,7 +7,7 @@
   <title>Vite + TS</title>
 </head>
 
-<body class="bg-black text-white font-poppins selection:bg-emerald-500">
+<body x-data="{}" class="bg-black text-white font-poppins selection:bg-emerald-500">
   <main>
     <section class="max-w-6xl mx-auto">
       <nav class="flex justify-between">
@@ -25,7 +25,7 @@
           </ul>
       </nav>
     </section>
-    <section class="max-w-6xl mx-auto">
+    <section class="max-w-6xl mx-auto my-20">
       <div class="grid grid-cols-2">
         <div class="space-y-8">
           <div>
@@ -53,18 +53,39 @@
         <div>
           <div class="flex flex-col h-full items-end justify-center">
             <div class="grid gap-4">
-            <div class="rounded-md border border-white py-4 px-6">
-              <p class="text-yellow-300 font-semibold text-3xl tracking-wide">38:14</p>
-              <p class="text-sm text-white">TIME</p>
-            </div>
-            <div class="rounded-md border border-white py-4 px-6">
-              <p class="text-red-500 font-semibold text-3xl tracking-wide">165</p>
-              <p class="text-sm text-white">CALORIES</p>
+              <div class="rounded-md border border-white py-4 px-6">
+                <p class="text-yellow-300 font-semibold text-3xl tracking-wide">38:14</p>
+                <p class="text-sm text-white">TIME</p>
+              </div>
+              <div class="rounded-md border border-white py-4 px-6">
+                <p class="text-red-500 font-semibold text-3xl tracking-wide">165</p>
+                <p class="text-sm text-white">CALORIES</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
+    </section>
+    <section class="max-w-6xl mx-auto">
+      <header class="flex justify-between">
+        <h3 class="font-semibold text-2xl">Popular Exercises</h3>
+        <a href="#!" class="text-sm text-gray-500">SEE MORE EXERCISES</a>
+      </header>
+      <div class="grid grid-cols-3">
+        <template x-for="exercise in $store.exercises">
+          <div>
+            <img :src="exercise.image" class="w-full rounded-md" />
+            <div>
+              <p x-text="exercise.title"></p>
+              <span x-text="exercise.duration"></span>
+            </div>
+            <p x-text="exercise.averageCalories"></p>
+          </div>
+
+        </template>
+
       </div>
+    </section>
   </main>
   <script type="module" src="/src/main.ts"></script>
 </body>
