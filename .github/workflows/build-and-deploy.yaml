@@ -34,10 +34,11 @@ jobs:
       - name: Install dependencies
         run: pnpm install
       - name: Build project
-        run: |
-          pnpm build
-          echo ${{ github.event.repository.name }}
-          echo $REPO_NAME
+        run: pnpm build
+      - name: Log
+        run: echo ${{ github.event.repository.name }}
+      - name: Log2
+        run: echo $REPO_NAME
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
